@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rail Atlas Results</title>
+  <meta name="description" content="Ranked SRT and KTX search results tailored to your trip goals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="results">
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="./index.html">
+        <span class="brand-mark">RA</span>
+        <span>Rail Atlas</span>
+      </a>
+      <nav class="topbar-actions">
+        <button class="ghost-button" type="button" data-action="toggle-language">EN</button>
+        <button class="ghost-button" type="button" data-action="toggle-theme">Dark</button>
+      </nav>
+    </header>
+
+    <main class="results-layout">
+      <section class="results-hero">
+        <div>
+          <p class="eyebrow" data-i18n="resultsEyebrow">Ranked trip options</p>
+          <h1 data-i18n="resultsTitle">조건에 맞는 SRT와 KTX를 정렬했습니다.</h1>
+          <p class="hero-text" id="query-summary"></p>
+        </div>
+        <a class="secondary-button" href="./index.html" data-i18n="editSearch">검색 수정</a>
+      </section>
+
+      <section class="results-grid">
+        <aside class="results-sidebar">
+          <div class="sidebar-card">
+            <p class="feature-kicker" data-i18n="rankingLogicKicker">How ranking works</p>
+            <h2 data-i18n="rankingLogicTitle">도착 목표 중심 점수</h2>
+            <p data-i18n="rankingLogicText">도착 마감 준수, 출발 희망 시각, 소요 시간, 가격, 좌석 선호, 열차 선호를 함께 반영합니다.</p>
+          </div>
+          <div class="sidebar-card sidebar-card-dark">
+            <p class="feature-kicker" data-i18n="bookingKicker">Booking flow</p>
+            <h2 data-i18n="bookingTitle">예매 보조 안내</h2>
+            <p data-i18n="bookingText">실제 자동 예매 연결은 계정 정보와 라이브러리 설정이 필요합니다. 현재 UI는 결과 비교와 예약 준비에 집중합니다.</p>
+          </div>
+        </aside>
+
+        <section class="results-list" id="results-list"></section>
+      </section>
+    </main>
+  </div>
+
+  <template id="result-card-template">
+    <article class="train-card">
+      <div class="train-card-top">
+        <div>
+          <p class="result-rank"></p>
+          <h2 class="train-route"></h2>
+        </div>
+        <span class="operator-badge"></span>
+      </div>
+      <div class="train-times"></div>
+      <div class="train-metrics"></div>
+      <p class="train-reason"></p>
+      <div class="train-actions">
+        <button class="primary-button book-button" type="button"></button>
+        <button class="ghost-button detail-button" type="button"></button>
+      </div>
+      <div class="booking-panel" hidden></div>
+    </article>
+  </template>
+
+  <script src="./app.js"></script>
+</body>
+</html>
